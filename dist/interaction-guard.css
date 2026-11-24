@@ -1,0 +1,45 @@
+/* Keep page gestures from changing the reading/drawing surface. */
+html, body {
+  touch-action: pan-x pan-y;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body, body * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Preserve the caret, native editing and keyboard paste in editable fields. */
+body input, body textarea,
+body [contenteditable]:not([contenteditable="false"]) {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+body a, body button, body input, body textarea, body select,
+.sidebar, .app-dialog, .math-scroll, .board-reference .ref-math, .board-expanded {
+  touch-action: pan-x pan-y;
+}
+
+body #blackboard {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img, svg, a { -webkit-user-drag: none; }
+textarea { resize: none !important; }
+
+/* Small native fields can otherwise trigger focus zoom on mobile Safari. */
+@media (max-width: 760px), (pointer: coarse) {
+  .global-search input, .width-select, #level-filter,
+  .lab-library-select select, .dialog-content input,
+  .dialog-content textarea, .dialog-content select {
+    font-size: 16px;
+  }
+  .width-select { width: 96px; min-width: 96px; }
+}

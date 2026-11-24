@@ -10,7 +10,7 @@ export const advancedEntries = [
     summary: '二次関数は、エックスの二乗を使って値が決まる関数です。グラフはおわんのような曲線になり、頂点を調べると、いちばん小さい値や大きい値がわかります。',
     definition: '実数の定数 a、b、c を用いて y = ax² + bx + c と表せる関数。ただし a は 0 ではない。グラフは放物線で、a が正なら下に凸、負なら上に凸になる。',
     explanation: ['平方完成すると y = a(x − p)² + q となり、頂点は (p, q)、対称の軸は x = p と読めます。係数 a の絶対値が大きいほど、頂点の近くでグラフの幅が狭くなります。', '定義域がすべての実数なら、a が正のとき頂点で最小、負のとき頂点で最大です。区間が指定されている場合は、頂点がその区間にあるかと、両端の値を確認します。'],
-    formula: String.raw`y=ax^2+bx+c=a(x-p)^2+q\quad(a\ne0)`, formulaSpeech: 'ワイ イコール、エー エックスの二乗、プラス ビー エックス、プラス シー。エーはゼロではありません。',
+    formula: String.raw`y=ax^2+bx+c=a(x-p)^2+q\quad(a\ne0)`, formulaSpeech: 'ワイは、エックスの二乗にエーを掛け、ビー掛けるエックスとシーを足した値です。平方完成すると、エックスからピーを引いたもの全体の二乗にエーを掛け、キューを足した形になります。エーはゼロではありません。',
     example: { question: 'y = x² − 4x + 7 の頂点と最小値は？', steps: ['x² − 4x + 7 を、(x − 2)² + 3 に書きかえます。', '(x − 2)² は 0 以上で、x = 2 のとき 0 になります。'], answer: '頂点は (2, 3)。x = 2 のとき最小値 3。' },
     pitfall: 'y = (x − 2)² + 3 の頂点の x 座標は −2 ではなく 2。かっこ内が 0 になる値を探しましょう。', related: ['quadratic-equation', 'linear-function', 'extrema'], sources: [pre('3-2-quadratic-functions', 'Quadratic Functions')]
   },
@@ -20,7 +20,7 @@ export const advancedEntries = [
     summary: '一次関数は、エックスを何倍かして、決まった数を足す関係です。グラフは直線で、傾きと切片がわかれば形が決まります。',
     definition: '定数 a、b を用いて y = ax + b と表せる関数。日本の中学校数学では通常 a ≠ 0 とする。a は変化の割合である傾き、b は y 軸との交点の y 座標である切片。',
     explanation: ['x が 1 増えたときの y の増え方が a です。a が負の場合は、x が増えると y が減り、直線は右下がりになります。', 'x = 0 のとき y = b です。グラフを描くときは、まず (0, b) を取り、傾きを使ってもう一つの点を見つけます。'],
-    formula: String.raw`y=ax+b\qquad a=\frac{\Delta y}{\Delta x}`, formulaSpeech: 'ワイ イコール、エー エックス、プラス ビー。傾きは、ワイの増加量をエックスの増加量で割ったものです。',
+    formula: String.raw`y=ax+b\qquad a=\frac{\Delta y}{\Delta x}`, formulaSpeech: 'ワイは、エー掛けるエックスにビーを足した値です。傾きは、ワイの増加量をエックスの増加量で割ったものです。',
     example: { question: 'y = 3x + 2 で、x が 1 から 4 まで増えると y はいくつ増える？', steps: ['x の増加量は 4 − 1 = 3 です。', '傾きは 3 なので、y の増加量は 3 × 3 です。'], answer: 'y は 9 増える。' },
     pitfall: '傾きと切片を取り違えないようにしましょう。x の係数が傾き、x を含まない項が切片です。', related: ['proportionality', 'quadratic-function', 'tangent-line'], sources: [pre('2-1-linear-functions', 'Linear Functions')]
   },
@@ -30,7 +30,7 @@ export const advancedEntries = [
     summary: '比例は、一方が二倍なら、もう一方も二倍になる関係です。単価が同じ品物の個数と代金のように、割り算で求めた比が一定になります。',
     definition: '二つの量 x、y の間に y = ax という関係があるとき、y は x に比例するという。定数 a を比例定数と呼ぶ。x が 0 でないとき、y ÷ x は一定になる。',
     explanation: ['比例のグラフは原点 (0, 0) を通る直線です。一次関数 y = ax + b のうち、切片 b が 0 であるものと考えられます。', '同じ倍率になることを確かめるには、いくつかの組で y ÷ x を求めます。ただ増えているだけでは、比例とは限りません。'],
-    formula: String.raw`y=ax\qquad\frac{y}{x}=a\quad(x\ne0)`, formulaSpeech: 'ワイ イコール、エー エックス。エックスがゼロでなければ、ワイ割るエックスはエーで一定です。',
+    formula: String.raw`y=ax\qquad\frac{y}{x}=a\quad(x\ne0)`, formulaSpeech: 'ワイは、エーとエックスの積です。エックスがゼロでなければ、ワイをエックスで割った値はエーで一定です。',
     example: { question: '1 個 120 円のパンを x 個買うとき、5 個の代金は？', steps: ['代金 y は個数 x に比例し、y = 120x です。', 'x = 5 を入れて、120 × 5 を計算します。'], answer: '600 円。比例定数は 120。' },
     pitfall: '基本料金が加わる料金は、一般に個数と比例しません。0 個のときも料金がかかるかを確認しましょう。', related: ['linear-function', 'inverse-proportion', 'fraction'], sources: [pre('3-key-concepts', 'Modeling Using Variation')]
   },
@@ -48,9 +48,9 @@ export const advancedEntries = [
     id: 'sine-function', title: '正弦・サイン', reading: 'せいげんさいん', category: 'functions', level: '高校', tags: ['三角関数', '単位円', '波'], aliases: ['sin', 'サイン', '正弦関数', 'sine'],
     short: '単位円上の点の高さを、角度に対応させる関数。',
     summary: 'サインは、円を回る点の高さを表します。角度を増やすと値が上下を繰り返すため、波や振動を表すときにも使います。',
-    definition: '原点を中心とする半径 1 の円で、正の x 軸から角 θ だけ回った点の y 座標を sin θ と定義する。鋭角の直角三角形では、対辺の長さを斜辺の長さで割った値に等しい。',
+    definition: '原点を中心とする半径 1 の円で、正の x 軸から角 θ だけ回った点の y 座標を sin θ と定義する。直角三角形の鋭角に対しては、その角の対辺の長さを斜辺の長さで割った値に等しい。',
     explanation: ['sin θ の値は −1 以上 1 以下です。0 度で 0、90 度で 1、180 度で 0、270 度で −1 となり、360 度で一周します。', '微分や積分では、角度にラジアンを使います。一周は 2π ラジアンなので、sin(x + 2π) = sin x です。'],
-    formula: String.raw`\sin\theta=\frac{\text{対辺}}{\text{斜辺}}\quad(0<\theta<90^\circ)`, formulaSpeech: '鋭角の直角三角形では、サイン シータは、対辺の長さを斜辺の長さで割った値です。',
+    formula: String.raw`\sin\theta=\frac{\text{対辺}}{\text{斜辺}}\quad(0<\theta<90^\circ)`, formulaSpeech: '直角三角形で、角シータが鋭角のとき、サインシータは、その角の対辺の長さを、斜辺の長さで割った値です。',
     example: { question: '角度 30 度に向かい合う辺が 3 cm、斜辺が 6 cm のとき、sin 30° は？', steps: ['サインは、対辺を斜辺で割った値です。', '3 ÷ 6 を計算して約分します。'], answer: 'sin 30° = 1/2。' },
     pitfall: '電卓の度数法とラジアン設定を確認しましょう。sin 30° と sin 30 ラジアンは異なる値です。', related: ['cosine-function', 'dot-product', 'derivative'], sources: [pre('5-2-unit-circle-sine-and-cosine-functions', 'Sine and Cosine')]
   },
@@ -60,7 +60,7 @@ export const advancedEntries = [
     summary: 'コサインは、円を回る点の横の位置を表します。サインと組み合わせると、円の上の点がどこにあるかを表せます。',
     definition: '単位円で、正の x 軸から角 θ だけ回った点の x 座標を cos θ と定義する。鋭角の直角三角形では、θ に隣り合う斜辺以外の辺を斜辺で割った値になる。',
     explanation: ['cos 0° = 1、cos 90° = 0、cos 180° = −1 です。コサインの値は −1 以上 1 以下で、一周すると元の値に戻ります。', '単位円の点は (cos θ, sin θ) と表せます。この点は半径 1 の円上にあるため、cos²θ + sin²θ = 1 が成り立ちます。'],
-    formula: String.raw`\cos^2\theta+\sin^2\theta=1`, formulaSpeech: 'コサイン シータの二乗、プラス、サイン シータの二乗は、いちです。',
+    formula: String.raw`\cos^2\theta+\sin^2\theta=1`, formulaSpeech: 'シータのコサインを二乗したものと、シータのサインを二乗したものを足すと、一です。',
     example: { question: '斜辺が 10 cm、角 θ に隣り合う辺が 6 cm の直角三角形で、cos θ は？', steps: ['コサインは、隣り合う辺を斜辺で割ります。', '6 ÷ 10 = 3/5 です。'], answer: 'cos θ = 3/5。' },
     pitfall: 'どの角を基準にするかで、対辺と隣辺が入れかわります。最初に注目する角を決めましょう。', related: ['sine-function', 'pythagorean-theorem', 'dot-product'], sources: [pre('5-2-unit-circle-sine-and-cosine-functions', 'Sine and Cosine')]
   },
@@ -90,7 +90,7 @@ export const advancedEntries = [
     summary: '等差数列は、同じ数を足しながら並べた数の列です。最初の数と、毎回いくつ足すかがわかれば、どの位置の数も求められます。',
     definition: '隣り合う項の差が一定の数列を等差数列という。この一定の差を公差 d といい、初項を a₁ とすると第 n 項は a₁ + (n − 1)d である。n は 1 以上の整数。',
     explanation: ['第 1 項から第 n 項までは、足す操作を n − 1 回行います。この回数が一般項の n − 1 に対応しています。', '初項から第 n 項までの和は、最初と最後の項の平均に項数をかければ求められます。公差が負なら、項は順に小さくなります。'],
-    formula: String.raw`a_n=a_1+(n-1)d\qquad S_n=\frac{n(a_1+a_n)}{2}`, formulaSpeech: '第エヌ項は、初項に、公差かけるエヌ引くいちを足します。和は、初項と末項の和に項数をかけて、にで割ります。',
+    formula: String.raw`a_n=a_1+(n-1)d\qquad S_n=\frac{n(a_1+a_n)}{2}`, formulaSpeech: '第エヌ項は、初項に、公差と、エヌから一を引いた数の積を足したものです。和は、初項と末項の和に項数を掛け、二で割ります。',
     example: { question: '3、7、11、15、… の第 10 項は？', steps: ['初項は 3、公差は 4 です。', '第 10 項は 3 + (10 − 1) × 4 です。'], answer: '39。' },
     pitfall: '第 n 項までの増加回数は n 回ではなく n − 1 回です。初項の時点では、まだ一度も足していません。', related: ['linear-function', 'geometric-sequence', 'mean'], sources: [pre('11-2-arithmetic-sequences', 'Arithmetic Sequences')]
   },
@@ -100,7 +100,7 @@ export const advancedEntries = [
     summary: '等比数列は、同じ倍率をかけながら作る数の列です。二、六、十八のように、ひとつ前の数を三倍する列も等比数列です。',
     definition: '各項が一つ前の項の一定倍となる数列を等比数列という。一定の倍率を公比 r と呼ぶ。公比が 0 でないとき、初項 a₁ と第 n 項 aₙ について、aₙ = a₁rⁿ⁻¹ が成り立つ。',
     explanation: ['初項から第 n 項までは公比を n − 1 回かけます。前の項が 0 でなければ、次の項を前の項で割ることで公比を求められます。', '公比が負なら、0 でない項の符号は交互に変わります。公比が 1 ならすべて同じ値で、n 項の和は初項の n 倍です。公比が 0 なら第 2 項以降が 0 になります。'],
-    formula: String.raw`a_n=a_1r^{n-1}\ (r\ne0)\qquad S_n=\frac{a_1(1-r^n)}{1-r}\quad(r\ne1)`, formulaSpeech: '第エヌ項は、初項かける、公比のエヌ引くいち乗です。和の公式で公比がいちの場合は、別に計算します。',
+    formula: String.raw`a_n=a_1r^{n-1}\ (r\ne0)\qquad S_n=\frac{a_1(1-r^n)}{1-r}\quad(r\ne1)`, formulaSpeech: '第エヌ項は、初項に、公比の累乗を掛けます。このときの指数は、エヌから一を引いた数です。公比はゼロではありません。初項から第エヌ項までの和は、分母が一から公比を引いた数、分子が、初項と、一から公比のエヌ乗を引いた数との積である分数です。公比が一の場合、この和の公式は使いません。',
     example: { question: '2、6、18、… の第 5 項は？', steps: ['初項は 2、公比は 3 です。', '第 5 項は 2 × 3 の 4 乗なので、2 × 81 です。'], answer: '162。' },
     pitfall: '公比と公差は別のものです。等比数列は「かける数」、等差数列は「足す数」が一定です。', related: ['arithmetic-sequence', 'exponential-function', 'limit'], sources: [pre('11-key-concepts', 'Geometric Sequences')]
   },
@@ -110,7 +110,7 @@ export const advancedEntries = [
     summary: '定義域は、入力してよい数の範囲です。値域は、その入力から実際に出てくる答えの範囲です。',
     definition: '関数の入力となる変数が動く集合を定義域、そのすべての入力に対応して実際に得られる出力の集合を値域という。式だけでなく、問題で指定された入力範囲も確認する。',
     explanation: ['実数の範囲で考えると、分母を 0 にする値は入力できず、平方根の中は 0 以上でなければなりません。対数の中は正である必要があります。', '値域を求めるには、グラフの高さや最大値・最小値を調べます。定義域を狭めると、値域も変わることがあります。'],
-    formula: String.raw`f(x)=x^2,\quad -2\le x\le3\quad\Longrightarrow\quad0\le f(x)\le9`, formulaSpeech: 'エフ エックスがエックスの二乗で、エックスがマイナスに以上さん以下なら、値はゼロ以上きゅう以下です。',
+    formula: String.raw`f(x)=x^2,\quad -2\le x\le3\quad\Longrightarrow\quad0\le f(x)\le9`, formulaSpeech: 'エフにエックスを入れた値が、エックスの二乗で、エックスがマイナス二以上三以下なら、関数の値はゼロ以上九以下です。',
     example: { question: 'y = x²、−2 ≤ x ≤ 3 の値域は？', steps: ['区間内の x = 0 で、最小値 0 になります。', '両端の値は 4 と 9 なので、最大値は 9 です。'], answer: '0 ≤ y ≤ 9。' },
     pitfall: '入力範囲の両端だけを計算しても、値域が決まるとは限りません。途中に頂点などがないか調べましょう。', related: ['quadratic-function', 'logarithm', 'inverse-function'], sources: [pre('1-2-domain-and-range', 'Domain and Range')]
   },
@@ -190,7 +190,7 @@ export const advancedEntries = [
     summary: '組合せは、順番を気にせずメンバーを選ぶ数え方です。エーさんとビーさんを選ぶことは、ビーさんとエーさんを選ぶことと同じ一通りです。',
     definition: '異なる n 個から、重複なく r 個を選ぶ方法を組合せという。選ぶ順序は区別しない。0 ≤ r ≤ n を満たす整数について、その数は nCr = n! ÷ {r!(n − r)!}。',
     explanation: ['まず順番付きで選んだあと、同じメンバーの並べかえ r! 通りをまとめると組合せの数になります。階乗は 1 からその整数までの積で、0! = 1 とします。', 'n 個から r 個を選ぶことと、選ばない n − r 個を決めることは同じです。そのため nCr = nC(n − r) が成り立ちます。'],
-    formula: String.raw`{}_nC_r=\binom nr=\frac{n!}{r!(n-r)!}`, formulaSpeech: 'エヌ シー アールは、エヌの階乗を、アールの階乗と、エヌ引くアールの階乗の積で割ります。',
+    formula: String.raw`{}_nC_r=\binom nr=\frac{n!}{r!(n-r)!}`, formulaSpeech: 'エヌシーアールは、分子がエヌの階乗、分母が次の二つの数の積である分数です。一つ目はアールの階乗。二つ目は、エヌからアールを引いた数全体の階乗です。',
     example: { question: '5 人から 2 人の係を、役割を分けずに選ぶ方法は？', steps: ['順番を区別すると、最初が 5 通り、次が 4 通りで 20 通りです。', '同じ 2 人の選び方を 2 回ずつ数えたので、2 で割ります。'], answer: '10 通り。' },
     pitfall: 'リーダーと副リーダーのように役割が異なる場合は、順序を区別する順列で数えます。', related: ['permutation', 'probability', 'binomial-distribution'], sources: [pre('11-5-counting-principles', 'Counting Principles')]
   },
@@ -200,7 +200,7 @@ export const advancedEntries = [
     summary: '順列は、何を選んだかに加えて、並び順も区別します。同じ三人でも、立つ順番が違えば別の並び方として数えます。',
     definition: '異なる n 個から、重複なく r 個を選んで並べることを順列という。0 ≤ r ≤ n を満たす整数について、並べ方の数は nPr = n! ÷ (n − r)!。',
     explanation: ['一つ目に n 通り、二つ目に n − 1 通りというように、選べる数が一つずつ減ります。これらをかけ合わせるのが基本です。', 'すべてを並べる場合は n! 通りになります。同じものを含む並べ方や、円形の並べ方には別の重複調整が必要です。'],
-    formula: String.raw`{}_nP_r=\frac{n!}{(n-r)!}`, formulaSpeech: 'エヌ ピー アールは、エヌの階乗を、エヌ引くアールの階乗で割った数です。',
+    formula: String.raw`{}_nP_r=\frac{n!}{(n-r)!}`, formulaSpeech: 'エヌピーアールは、エヌの階乗を、エヌからアールを引いた数全体の階乗で割ったものです。',
     example: { question: '5 人から代表と副代表を 1 人ずつ選ぶ方法は？', steps: ['代表は 5 人の中から選べます。', '副代表は代表以外の 4 人から選ぶので、5 × 4 です。'], answer: '20 通り。' },
     pitfall: '同じ人を何度も選べる場合は、この順列の公式をそのまま使えません。重複が許されるかを確認します。', related: ['combination', 'probability', 'binomial-distribution'], sources: [pre('11-5-counting-principles', 'Counting Principles')]
   },
@@ -240,7 +240,7 @@ export const advancedEntries = [
     summary: '二項分布は、成功か失敗かの試行を何回か繰り返し、何回成功するかを表します。毎回の成功確率が同じで、各回が独立であることが条件です。',
     definition: '成功確率 p の独立な試行を n 回行うとき、成功回数 X が従う確率分布を二項分布 B(n, p) という。n は非負整数、0 ≤ p ≤ 1。期待値は np、分散は np(1 − p)。',
     explanation: ['ちょうど k 回成功する並び方は nCk 通りです。それぞれの並びの確率 pᵏ(1 − p)ⁿ⁻ᵏ をかけると、成功回数の確率になります。', '前の結果で次の成功確率が変わる場合や、試行回数を結果に応じて変える場合には、このモデルをそのまま使えません。'],
-    formula: String.raw`P(X=k)=\binom nk p^k(1-p)^{n-k}\quad(k=0,1,\ldots,n)`, formulaSpeech: 'エックスがケーとなる確率は、エヌ シー ケー、かけるピーのケー乗、かける、いち引くピーのエヌ引くケー乗です。',
+    formula: String.raw`P(X=k)=\binom nk p^k(1-p)^{n-k}\quad(k=0,1,\ldots,n)`, formulaSpeech: 'エックスがケーになる確率は、エヌシーケーと、ピーのケー乗と、もう一つの累乗の、三つの数の積です。最後の累乗の底は、一からピーを引いた数。指数は、エヌからケーを引いた数です。',
     example: { question: '公平なコインを独立に 3 回投げ、表がちょうど 2 回出る確率は？', steps: ['表が 2 回出る位置の選び方は 3C2 = 3 通りです。', '各並びの確率は (1/2)³ = 1/8 なので、3 × 1/8 です。'], answer: '3/8。' },
     pitfall: '成功と失敗の確率を、回数に合わせてそれぞれかけます。成功の確率だけでは計算できません。', related: ['combination', 'independence', 'expected-value'], sources: [stats('4-3-binomial-distribution', 'Binomial Distribution')]
   },
@@ -250,7 +250,7 @@ export const advancedEntries = [
     summary: '微分は、今この瞬間にどれくらい変化しているかを調べる方法です。グラフでは、その点に引いた接線の傾きに対応します。',
     definition: '関数 f の点 x における差商 {f(x+h) − f(x)}/h が、h を 0 に近づけたとき有限の極限を持つなら、その値を微分係数という。これを x の関数として表したものが導関数 f′。',
     explanation: ['二つの点を結ぶ直線の傾きは、ある区間の平均変化率です。点の間隔を限りなく小さくすると、一点での変化率を考えられます。', '位置を時間で微分すると速度を表します。グラフに角がある点などでは、左右からの傾きが一致せず微分できないことがあります。'],
-    formula: String.raw`f^{\prime}(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}`, formulaSpeech: 'エフ ダッシュ エックスは、エフ エックス プラス エイチと、エフ エックスの差をエイチで割り、エイチをゼロに近づけた極限です。',
+    formula: String.raw`f^{\prime}(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}`, formulaSpeech: 'エフダッシュエックスは、次の差商でエイチをゼロに近づけた極限です。エフに、エックスとエイチの和を入れた値から、エフにエックスを入れた値を引き、その差全体をエイチで割ります。',
     example: { question: 'f(x) = x² の導関数と、x = 3 での傾きは？', steps: ['差商は {(x+h)² − x²}/h = 2x + h です。', 'h を 0 に近づけると 2x。x = 3 を入れます。'], answer: 'f′(x) = 2x、x = 3 での傾きは 6。' },
     pitfall: '微分係数は一点での数値、導関数は各点の微分係数をまとめた関数です。', related: ['limit', 'tangent-line', 'integral'], sources: [calc('3-1-defining-the-derivative', 'Defining the Derivative')]
   },
@@ -290,7 +290,7 @@ export const advancedEntries = [
     summary: 'エックスの累乗を微分するときは、指数を前にかけて、指数を一つ減らします。定数だけの項を微分するとゼロになります。',
     definition: '正整数 n に対して、xⁿ の導関数は nxⁿ⁻¹ である。実数の指数にも適切な定義域で拡張できる。ここでは主に多項式の微分として扱う。',
     explanation: ['x³ の微分は 3x²、x² の微分は 2x です。項の前に定数がかかっていれば、その定数はそのまま残します。', '多項式の和や差は、項ごとに微分できます。定数は x を変えても変わらないため、その変化率は 0 です。'],
-    formula: String.raw`\frac{d}{dx}x^n=nx^{n-1}\quad(n=1,2,3,\ldots)`, formulaSpeech: 'エックスのエヌ乗を微分すると、エヌかける、エックスのエヌ引くいち乗になります。',
+    formula: String.raw`\frac{d}{dx}x^n=nx^{n-1}\quad(n=1,2,3,\ldots)`, formulaSpeech: 'エックスのエヌ乗を微分すると、係数はエヌ、エックスの指数はエヌから一を引いた数になります。エヌは一以上の整数です。',
     example: { question: 'f(x) = 3x³ − 2x + 7 を微分しよう。', steps: ['3x³ の微分は 3 × 3x² = 9x² です。', '−2x の微分は −2、定数 7 の微分は 0 です。'], answer: 'f′(x) = 9x² − 2。' },
     pitfall: '指数を下げるだけではありません。元の指数を係数にかける手順も必要です。', related: ['derivative', 'chain-rule', 'integral'], sources: [calc('3-key-concepts', 'Differentiation Rules')]
   },
@@ -300,7 +300,7 @@ export const advancedEntries = [
     summary: '接線は、曲線のある場所を拡大したときの進む向きを表す直線です。微分すると、その傾きを求められます。',
     definition: '関数 f が x = a で微分可能なとき、点 (a, f(a)) を通り、傾き f′(a) を持つ直線をその点での接線という。',
     explanation: ['接線の式には、通る点の座標と傾きの両方が必要です。まず f(a) を求め、次に導関数へ a を代入して傾きを求めます。', '接点の近くでは、曲線の値を接線の値で近似できます。接線は接点以外で曲線と交わることもあります。'],
-    formula: String.raw`y-f(a)=f^{\prime}(a)(x-a)`, formulaSpeech: 'ワイ引くエフ エーは、エフ ダッシュ エーかける、エックス引くエーです。',
+    formula: String.raw`y-f(a)=f^{\prime}(a)(x-a)`, formulaSpeech: 'ワイから、エフにエーを入れた値を引くと、エーでの微分係数と、エックスからエーを引いた値の積になります。',
     example: { question: 'y = x² の x = 1 における接線は？', steps: ['接点は (1, 1)。導関数は 2x なので、傾きは 2 です。', 'y − 1 = 2(x − 1) を整理します。'], answer: 'y = 2x − 1。' },
     pitfall: '接線を「曲線とただ 1 点でしか交わらない直線」とだけ覚えると、一般の曲線で誤ります。', related: ['derivative', 'linear-function', 'quadratic-function'], sources: [calc('3-1-defining-the-derivative', 'Defining the Derivative')]
   },
@@ -320,7 +320,7 @@ export const advancedEntries = [
     summary: '合成関数は、ある計算の結果を、さらに別の計算に入れた関数です。微分するときは外側を微分し、さらに内側の微分をかけます。',
     definition: 'u = g(x) が x で微分可能で、f が u = g(x) で微分可能なら、合成関数 f(g(x)) の導関数は f′(g(x))g′(x) となる。',
     explanation: ['(2x + 1)³ では、外側は「三乗」、内側は「2x + 1」です。外側を微分したあと、内側がどれくらい変化するかも反映します。', '入れ子が複数あるときも、外から順に微分してかけ合わせます。途中の関数を u などと置くと構造を見分けやすくなります。'],
-    formula: String.raw`\frac{d}{dx}f(g(x))=f^{\prime}(g(x))g^{\prime}(x)`, formulaSpeech: 'エフ ジー エックスの微分は、外側を微分してジー エックスを入れたものに、内側のジー エックスの微分をかけます。',
+    formula: String.raw`\frac{d}{dx}f(g(x))=f^{\prime}(g(x))g^{\prime}(x)`, formulaSpeech: 'エフとジーの合成関数を微分します。外側のエフを微分してから、ジーにエックスを入れた値を代入し、そこに内側のジーの導関数を掛けます。',
     example: { question: 'y = (2x + 1)³ を微分しよう。', steps: ['外側の三乗を微分すると、3(2x + 1)² です。', '内側の 2x + 1 の微分は 2 なので、それをかけます。'], answer: 'y′ = 6(2x + 1)²。' },
     pitfall: '外側の微分だけで終わらず、内側の微分をかけることを忘れないでください。', related: ['derivative', 'differentiation-power', 'inverse-function'], sources: [calc('3-6-the-chain-rule', 'The Chain Rule')]
   },
@@ -340,7 +340,7 @@ export const advancedEntries = [
     summary: '微分と積分は、適切な条件のもとで逆向きの関係になります。この定理のおかげで、細かい面積をすべて足さなくても、原始関数から定積分を計算できます。',
     definition: 'f が閉区間 [a, b] で連続なら、G(x) = ∫ₐˣ f(t)dt は内部で微分可能で G′(x) = f(x)。さらに f の原始関数 F を使い、∫ₐᵇ f(x)dx = F(b) − F(a) と計算できる。',
     explanation: ['積分の上端を動かした関数 G は、それまでの量の蓄積を表します。上端を少し動かしたときの増え方が、元の関数値になるという関係です。', 'この定理は、面積の極限としての積分と、微分を逆にたどる原始関数とを結び付けます。計算時は関数の定義域や連続性も確かめます。'],
-    formula: String.raw`\frac{d}{dx}\int_a^x f(t)\,dt=f(x)`, formulaSpeech: 'エーからエックスまでの、エフ ティーの積分を、エックスで微分すると、エフ エックスになります。',
+    formula: String.raw`\frac{d}{dx}\int_a^x f(t)\,dt=f(x)`, formulaSpeech: '関数エフにティーを入れた値を、ティーについてエーからエックスまで積分します。これをエックスで微分すると、エフにエックスを入れた値になります。',
     example: { question: 'G(x) = ∫₀ˣ 3t² dt の導関数は？', steps: ['積分する関数 3t² は連続です。', '基本定理により、上端の x を入れた 3x² が導関数です。'], answer: 'G′(x) = 3x²。' },
     pitfall: '積分の上端が x² などの関数なら、基本定理に加えて合成関数の微分が必要です。', related: ['derivative', 'integral', 'definite-integral'], sources: [calc('5-3-the-fundamental-theorem-of-calculus', 'Fundamental Theorem')]
   },

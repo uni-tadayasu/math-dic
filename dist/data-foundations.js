@@ -173,7 +173,7 @@ export const foundationEntries = [
     summary: '同類項は、同じ種類の文字のまとまりです。同じものの個数を合わせるように、係数だけを足したり引いたりしてまとめます。',
     definition: '文字の組み合わせと各文字の指数がすべて一致する項を同類項といいます。2xと−5xは同類項ですが、2xと2x²は異なります。',
     explanation: ['3x+4xは、xが3個と4個あると考えて7xにまとめられます。これは分配法則を逆向きに使った計算です。', '定数だけの項も同類項としてまとめます。一方、xの項とyの項は、一般には一つの項にできません。'],
-    formula: 'ax+bx=(a+b)x', formulaSpeech: 'エーエックス、プラス、ビーエックスは、エーとビーの和、掛けるエックスです。',
+    formula: 'ax+bx=(a+b)x', formulaSpeech: 'エー掛けるエックスと、ビー掛けるエックスの和は、エーとビーの和にエックスを掛けたものです。',
     example: { question: '5x+2−3x+7を簡単にしましょう。', steps: ['xの項は5x−3xで2xになります。', '数だけの項は2+7で9になります。'], answer: '2x+9です。' },
     pitfall: 'xとx²は同類項ではありません。x+x²を2x²とすることはできません。', related: ['algebraic-expression', 'distributive-law', 'expansion'], sources: [S.expressions]
   },
@@ -183,7 +183,7 @@ export const foundationEntries = [
     summary: '分配法則は、かっこの外の数を、中のそれぞれの項に掛けるルールです。まとめて計算することと、分けて計算することが同じ結果になります。',
     definition: '数a、b、cについて、a(b+c)=ab+acが成り立つことを分配法則といいます。減法の場合も、a(b−c)=ab−acとなります。',
     explanation: ['例えば、3人にりんご2個とみかん4個ずつを配る場合、3(2+4)と、3×2+3×4は同じ個数を数えています。', '逆向きに使うと、共通する因数をくくり出せます。これは因数分解の基本です。'],
-    formula: 'a(b+c)=ab+ac', formulaSpeech: 'エー掛ける、ビーたすシーは、エービーたすエーシーです。',
+    formula: 'a(b+c)=ab+ac', formulaSpeech: 'ビーとシーの和に、エーを掛けると、エー掛けるビーと、エー掛けるシーの和になります。',
     example: { question: '−2(x−3)を展開しましょう。', steps: ['マイナス2をxに掛けて、マイナス2xにします。', 'マイナス2をマイナス3に掛けると、プラス6です。'], answer: '−2x+6です。' },
     pitfall: 'かっこの最初の項だけに掛けてはいけません。すべての項に掛け、符号も確認します。', related: ['expansion', 'factorization', 'like-terms'], sources: [S.distribution]
   },
@@ -193,7 +193,7 @@ export const foundationEntries = [
     summary: '展開は、掛け算のかっこを開く計算です。それぞれの項を掛け合わせてから、同類項をまとめます。',
     definition: '多項式の積を分配法則によって計算し、項の和として表すことを展開といいます。因数分解とは逆向きの操作です。',
     explanation: ['(x+a)(x+b)では、前のかっこの各項を、後ろのかっこの各項に掛けます。x²、bx、ax、abの四つの項が現れます。', 'よく出る形は公式としてまとめられます。(a+b)²=a²+2ab+b²ですが、途中の2abを忘れないことが大切です。'],
-    formula: '(x+a)(x+b)=x^2+(a+b)x+ab', formulaSpeech: 'エックスたすエーと、エックスたすビーの積は、エックスの二乗、たす、エーたすビー掛けるエックス、たす、エービーです。',
+    formula: '(x+a)(x+b)=x^2+(a+b)x+ab', formulaSpeech: 'エックスにエーを足した式と、エックスにビーを足した式の積を考えます。展開すると、エックスの二乗に、エーとビーの和にエックスを掛けたものと、エー掛けるビーを加えた式になります。',
     example: { question: '(x+4)(x−2)を展開しましょう。', steps: ['各項を掛けると、x²−2x+4x−8です。', '同類項の−2xと4xをまとめます。'], answer: 'x²+2x−8です。' },
     pitfall: '(a+b)²はa²+b²ではありません。交差する積から2abが現れます。', related: ['distributive-law', 'factorization', 'like-terms'], sources: [S.products, S.specialProducts]
   },
@@ -203,7 +203,7 @@ export const foundationEntries = [
     summary: '因数分解は、展開を逆向きにたどる計算です。式を掛け算の形にすると、方程式の解や式の性質を見つけやすくなります。',
     definition: '多項式を、より簡単な多項式などの積として表すことを因数分解といいます。どの範囲の係数を認めるかで、分解できる形は変わります。',
     explanation: ['まず全項に共通する因数がないかを確認します。例えば3x²+6xは3x(x+2)と書けます。', 'x²+bx+cでは、和がb、積がcになる二つの数を探す方法があります。最後に展開して元の式に戻るか確かめます。'],
-    formula: 'x^2+(p+q)x+pq=(x+p)(x+q)', formulaSpeech: 'エックスの二乗、たす、ピーとキューの和掛けるエックス、たす、ピーキューは、エックスたすピーとエックスたすキューの積です。',
+    formula: 'x^2+(p+q)x+pq=(x+p)(x+q)', formulaSpeech: 'エックスの二乗に、ピーとキューの和をエックスに掛けたものと、ピー掛けるキューを加えた式は、エックスにピーを足した式と、エックスにキューを足した式の積です。',
     example: { question: 'x²+7x+12を因数分解しましょう。', steps: ['和が7、積が12になる数を探します。', '3と4が条件を満たします。'], answer: '(x+3)(x+4)です。' },
     pitfall: 'どんな式でも整数係数の一次式の積になるわけではありません。分解する係数の範囲を確認しましょう。', related: ['expansion', 'quadratic-equation', 'distributive-law'], sources: [S.factoring]
   },
@@ -213,7 +213,7 @@ export const foundationEntries = [
     summary: '一次方程式は、つり合いを保ちながら未知の数を探す式です。両辺に同じ操作をして、文字一つだけの形に近づけます。',
     definition: '一つの未知数xについて、ax+b=0という形に整理できる方程式を一元一次方程式といいます。ただしaは0ではありません。',
     explanation: ['両辺に同じ数を加えたり引いたりしても、等しい関係は保たれます。0でない同じ数で両辺を割ることもできます。', '移項は、両辺に同じ数や式を加減する操作を省略した書き方です。求めた値を元の式に入れると、計算を確認できます。'],
-    formula: 'ax+b=0\\quad\\Longrightarrow\\quad x=-\\frac ba\\quad(a\\ne0)', formulaSpeech: 'エーエックスたすビーがゼロなら、エックスはマイナスビー割るエーです。エーはゼロではありません。',
+    formula: 'ax+b=0\\quad\\Longrightarrow\\quad x=-\\frac ba\\quad(a\\ne0)', formulaSpeech: 'エー掛けるエックスにビーを足した値がゼロなら、エックスは、マイナスビーをエーで割った値です。エーはゼロではありません。',
     example: { question: '4x−7=13を解きましょう。', steps: ['両辺に7を加えて、4x=20にします。', '両辺を4で割ります。'], answer: 'x=5です。' },
     pitfall: '片方の辺だけに足したり割ったりすると、等しい関係が崩れます。両辺に同じ操作をします。', related: ['algebraic-expression', 'simultaneous-equations', 'inequality'], sources: [S.equations]
   },
@@ -243,7 +243,7 @@ export const foundationEntries = [
     summary: '二次方程式には、未知数を二乗した項が含まれます。因数分解や解の公式を使うと、条件を満たす数を求められます。',
     definition: 'ax²+bx+c=0という形に整理できる方程式を二次方程式といいます。a、b、cは定数で、aは0ではありません。',
     explanation: ['因数分解して積が0の形になれば、少なくとも一つの因数が0です。この性質を使って、それぞれの一次方程式を解きます。', '実数の範囲では、異なる解が二つ、重なった解が一つ、実数解なしのいずれかです。条件は判別式で調べられます。'],
-    formula: 'ax^2+bx+c=0\\quad(a\\ne0)', formulaSpeech: 'エーエックスの二乗、たす、ビーエックス、たす、シーはゼロ。エーはゼロではありません。',
+    formula: 'ax^2+bx+c=0\\quad(a\\ne0)', formulaSpeech: 'エックスの二乗にエーを掛け、ビー掛けるエックスとシーを足すとゼロです。エーはゼロではありません。',
     example: { question: 'x²−5x+6=0を解きましょう。', steps: ['左辺を(x−2)(x−3)と因数分解します。', '積が0なので、x−2=0またはx−3=0です。'], answer: 'x=2、3です。' },
     pitfall: 'x²=9の解を3だけにしてはいけません。マイナス3も二乗すると9になります。', related: ['quadratic-formula', 'factorization', 'discriminant', 'quadratic-function'], sources: [S.quadratic]
   },
@@ -253,7 +253,7 @@ export const foundationEntries = [
     summary: '解の公式は、二次方程式を係数だけで解くための道具です。まず右辺をゼロにそろえ、二乗の係数、一次の係数、定数項を正しく入れます。',
     definition: 'ax²+bx+c=0、a≠0の解は、x=(−b±√(b²−4ac))/(2a)で与えられます。実数の解を求めるときは、根号の中が0以上である必要があります。',
     explanation: ['±はプラスの場合とマイナスの場合を表します。根号の中が0なら二つの結果が一致して重解になります。', 'この公式は平方完成から導けます。整数で簡単に因数分解できない方程式にも使えるのが利点です。'],
-    formula: 'x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\\quad(a\\ne0)', formulaSpeech: 'エックスは、二エー分の、マイナスビー、プラスマイナス、ルート、ビーの二乗ひく四エーシー、です。エーはゼロではありません。',
+    formula: 'x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\\quad(a\\ne0)', formulaSpeech: 'エックスは次の分数です。分母は、二掛けるエー。分子は、マイナスビーに、ビーの二乗から四掛けるエー掛けるシーを引いた値のゼロ以上の平方根を、加えたもの、または引いたものです。エーはゼロではありません。',
     example: { question: 'x²−2x−2=0を解きましょう。', steps: ['a=1、b=−2、c=−2です。', '公式に入れると、xは2分の、2プラスマイナスルート12です。', 'ルート12を2ルート3に直して約分します。'], answer: 'x=1±√3です。' },
     pitfall: '分母の2aは、分子全体を割ります。根号の部分だけ、または−bだけを割るのではありません。', related: ['quadratic-equation', 'discriminant', 'completing-square'], sources: [S.quadraticFormula]
   },
@@ -263,7 +263,7 @@ export const foundationEntries = [
     summary: '判別式は、二次方程式に実数の解が何個あるかを教えてくれます。正なら異なる二つ、ゼロなら重なった一つ、負なら実数の解はありません。',
     definition: '実数係数の二次方程式ax²+bx+c=0、a≠0について、D=b²−4acを判別式といいます。解の公式の根号の中に当たる部分です。',
     explanation: ['D>0では平方根に正負の違いが生まれ、異なる二つの実数解があります。D=0では二つの式が同じ値になり、重解になります。', 'D<0では実数解がありません。複素数まで範囲を広げれば、異なる二つの非実数の解があります。'],
-    formula: 'D=b^2-4ac', formulaSpeech: 'ディーは、ビーの二乗ひく四エーシーです。',
+    formula: 'D=b^2-4ac', formulaSpeech: 'ディーは、ビーの二乗から、四とエーとシーの積を引いた数です。',
     example: { question: '2x²−4x+2=0の実数解はいくつですか。', steps: ['a=2、b=−4、c=2を判別式に入れます。', 'Dは16−16で0になります。'], answer: '重解をもち、実数の値としては一つです。解はx=1です。' },
     pitfall: 'D<0を「どの数の範囲でも解がない」と言い切ってはいけません。ここで判定しているのは実数解です。', related: ['quadratic-formula', 'quadratic-function', 'quadratic-equation'], sources: [S.quadraticFormula]
   },
@@ -273,7 +273,7 @@ export const foundationEntries = [
     summary: '平方完成は、二次式の中に二乗のまとまりを作る計算です。グラフの頂点や、式の最大値・最小値が見つけやすくなります。',
     definition: '二次式ax²+bx+cをa(x−p)²+qという形に変形することを平方完成といいます。ただしa≠0です。',
     explanation: ['x²+bxの部分では、xにbの半分を足したものを2乗します。そのままでは定数が増えるので、増えた分を引いてつり合わせます。', 'x²の係数が1でない場合は、まずxを含む部分からその係数をくくり出すと見通しがよくなります。'],
-    formula: 'x^2+bx+c=\\left(x+\\frac b2\\right)^2+c-\\frac{b^2}{4}', formulaSpeech: 'エックスの二乗たすビーエックスたすシーは、エックスたすビーの半分の二乗、たすシー、ひくビーの二乗の四分の一です。',
+    formula: 'x^2+bx+c=\\left(x+\\frac b2\\right)^2+c-\\frac{b^2}{4}', formulaSpeech: 'エックスの二乗にビー掛けるエックスとシーを足した式は、次のように表せます。エックスとビーの半分の和を二乗し、シーを足して、ビーの二乗の四分の一を引きます。',
     example: { question: 'x²−6x+5を平方完成しましょう。', steps: ['x²−6xは、(x−3)²−9と書けます。', '残りの5を足し、−9+5をまとめます。'], answer: '(x−3)²−4です。' },
     pitfall: '二乗を作るために足した定数は、その分だけ引いて補います。式の値が変わらないようにしましょう。', related: ['quadratic-function', 'quadratic-formula', 'expansion'], sources: [S.completing]
   },
@@ -283,7 +283,7 @@ export const foundationEntries = [
     summary: '指数は、同じ数を何回掛けるかをまとめた記号です。同じ底の累乗の掛け算では、掛ける回数がつながるので、指数を足します。',
     definition: '0でない数aと整数m、nについて、a^m a^n=a^(m+n)、(a^m)^n=a^(mn)などが成り立ちます。a^0=1、a^(−n)=1/a^nと定めます。',
     explanation: ['a³a²は、aを3個掛けたものに、さらに2個掛けるのでa⁵になります。同じ底であることが条件です。', '負の指数は負の値を意味せず、逆数を意味します。例えば2のマイナス3乗は8分の1です。'],
-    formula: 'a^m a^n=a^{m+n},\\quad (a^m)^n=a^{mn}\\quad(a\\ne0)', formulaSpeech: 'エーのエム乗掛けるエーのエヌ乗は、エーのエムたすエヌ乗です。エーのエム乗をさらにエヌ乗すると、エーのエム掛けるエヌ乗です。',
+    formula: 'a^m a^n=a^{m+n},\\quad (a^m)^n=a^{mn}\\quad(a\\ne0)', formulaSpeech: '同じ底エーのエム乗とエヌ乗を掛けると、指数はエムとエヌの和になります。エーのエム乗をさらにエヌ乗すると、指数はエム掛けるエヌになります。エーはゼロではありません。',
     example: { question: '3⁴÷3²を計算しましょう。', steps: ['同じ底の割り算なので、指数を4−2にします。', '3²を計算します。'], answer: '9です。' },
     pitfall: 'a^m+a^nのような足し算で、指数を足してはいけません。指数を足す法則は同じ底の掛け算に使います。', related: ['expansion', 'square-root', 'prime-factorization'], sources: [S.exponents]
   },
@@ -293,7 +293,7 @@ export const foundationEntries = [
     summary: '恒等式は、たまたま一つの値で合う式ではありません。文字にどんな許される値を入れても、左右が同じになる式です。',
     definition: '定義される範囲内のすべての値について成り立つ等式を恒等式といいます。例えば(x+1)²=x²+2x+1は実数xについての恒等式です。',
     explanation: ['方程式は条件を満たす文字の値を探しますが、恒等式は式として常に同じ値であることを表します。', '二つの多項式がすべての実数xで等しいなら、同じ次数の項の係数はそれぞれ等しくなります。これを係数比較といいます。'],
-    formula: '(x+1)^2=x^2+2x+1', formulaSpeech: 'エックスたす一の二乗は、エックスの二乗たす二エックスたす一に、いつも等しくなります。',
+    formula: '(x+1)^2=x^2+2x+1', formulaSpeech: 'エックスに一を足したもの全体を二乗すると、エックスの二乗に、二掛けるエックスと一を加えた式になります。',
     example: { question: 'ax+b=3x−5がすべての実数xで成り立つとき、aとbを求めましょう。', steps: ['xの係数を比べると、a=3です。', '定数項を比べると、b=−5です。'], answer: 'a=3、b=−5です。' },
     pitfall: 'いくつかの値を代入して成り立っても、それだけで恒等式と証明できるとは限りません。式変形などで全体を確かめます。', related: ['expansion', 'algebraic-expression', 'linear-equation'], sources: [S.equations, S.specialProducts]
   },
@@ -323,7 +323,7 @@ export const foundationEntries = [
     summary: '長方形は、四つの角がすべて直角の形です。縦と横を掛けると面積、縦と横の和を二倍すると周の長さになります。',
     definition: '四つの内角がすべて90度である四角形を長方形といいます。向かい合う辺は平行で長さが等しく、正方形も長方形の一種です。',
     explanation: ['縦a、横bの長方形には、単位正方形がa×b個分入ると考えられるため、面積はabです。', '二本の対角線の長さは等しく、互いの中点で交わります。ただし、一般の長方形で対角線が直角に交わるとは限りません。'],
-    formula: 'S=ab,\\qquad P=2(a+b)', formulaSpeech: '面積エスはエー掛けるビー。周の長さピーは、エーたすビーの二倍です。',
+    formula: 'S=ab,\\qquad P=2(a+b)', formulaSpeech: '面積エスは、エー掛けるビー。周の長さピーは、エーとビーの和の二倍です。',
     example: { question: '縦5センチメートル、横8センチメートルの長方形の面積と周の長さは。', steps: ['面積は5×8です。', '周の長さは2×(5+8)です。'], answer: '面積は40平方センチメートル、周は26センチメートルです。' },
     pitfall: '面積と周の長さでは単位が違います。面積には平方センチメートルなどの単位を使います。', related: ['parallelogram', 'area-triangle', 'pythagorean-theorem'], sources: [S.areas]
   },
@@ -353,7 +353,7 @@ export const foundationEntries = [
     summary: '円の面積は、半径掛ける半径掛ける円周率で求められます。半径が二倍になると、面積は四倍になります。',
     definition: '半径rの円で囲まれた領域の面積Sはπr²です。πは円周率を表し、約3.14159ですが、問題の指定がない限りπのまま表せます。',
     explanation: ['円を細かな扇形に分けて交互に並べると、半径を高さ、円周の半分を底辺とする長方形に近づきます。その積がπr²です。', '直径が与えられているときは、まず2で割って半径に直します。長さの単位がセンチメートルなら、面積は平方センチメートルです。'],
-    formula: 'S=\\pi r^2', formulaSpeech: '円の面積エスは、円周率パイ掛ける半径アールの二乗です。',
+    formula: 'S=\\pi r^2', formulaSpeech: '面積エスは、半径アールを二乗し、それに円周率パイを掛けたものです。',
     example: { question: '直径12センチメートルの円の面積を、πを使って表しましょう。', steps: ['半径は12割る2で6センチメートルです。', '半径を2乗してπを掛けます。'], answer: '36π平方センチメートルです。' },
     pitfall: '公式に入れるのは半径です。直径をそのまま2乗すると、面積を4倍に数えてしまいます。', related: ['circumference', 'sector', 'volume-cylinder'], sources: [S.circle]
   },
@@ -373,7 +373,7 @@ export const foundationEntries = [
     summary: '扇形は、円を中心から切り分けた形です。中心角が一周の何分のいくつかを考えると、面積も弧の長さも同じ割合で求められます。',
     definition: '半径r、中心角θ度の扇形では、面積Sはπr²×θ/360、弧の長さℓは2πr×θ/360です。θは度数法で表した角度とします。',
     explanation: ['中心角90度なら一周360度の4分の1なので、面積も円全体の4分の1、弧の長さも円周の4分の1です。', '扇形の周の長さを求める場合は、弧の長さだけでなく、二本の半径の長さも加えます。'],
-    formula: 'S=\\pi r^2\\frac{\\theta}{360},\\quad \\ell=2\\pi r\\frac{\\theta}{360}\\quad(\\theta:\\text{度})', formulaSpeech: '面積はパイアールの二乗に、三百六十分の中心角を掛けます。弧の長さは二パイアールに同じ割合を掛けます。中心角は度で表します。',
+    formula: 'S=\\pi r^2\\frac{\\theta}{360},\\quad \\ell=2\\pi r\\frac{\\theta}{360}\\quad(\\theta:\\text{度})', formulaSpeech: '面積は、半径アールの二乗にパイを掛け、さらに中心角を三百六十度で割った割合を掛けます。弧の長さは、二掛けるパイ掛けるアールに、同じ割合を掛けます。中心角は度で表します。',
     example: { question: '半径6センチメートル、中心角60度の扇形の面積は。', steps: ['60度は360度の6分の1です。', '円全体の面積36πを6で割ります。'], answer: '6π平方センチメートルです。' },
     pitfall: '角度をラジアンで表している場合には、この360で割る式をそのまま使えません。角度の単位を確認します。', related: ['area-circle', 'circumference', 'ratio'], sources: [S.sector]
   },
@@ -413,7 +413,7 @@ export const foundationEntries = [
     summary: '多角形の角の合計は、三角形に分けて考えると分かります。五角形なら三つの三角形に分けられるので、合計は五百四十度です。',
     definition: '辺が交差しない平面上のn角形の内角の和は、(n−2)×180度です。nは3以上の整数で、へこんだ頂点では180度を超える内角を数えます。',
     explanation: ['凸多角形では、一つの頂点から対角線を引くと、n−2個の三角形に分けられます。その内角の和を合わせると公式になります。', '正n角形ではすべての内角が等しいので、内角の和をnで割ると一つの内角を求められます。'],
-    formula: '\\text{内角の和}=(n-2)\\times180^\\circ', formulaSpeech: 'エヌ角形の内角の和は、エヌひく二、掛ける百八十度です。',
+    formula: '\\text{内角の和}=(n-2)\\times180^\\circ', formulaSpeech: 'エヌ角形の内角の和は、エヌから二を引いた数に、百八十度を掛けた値です。',
     example: { question: '正六角形の一つの内角は何度ですか。', steps: ['六角形の内角の和は、(6−2)×180で720度です。', '正六角形では六つの角が等しいので、720を6で割ります。'], answer: '120度です。' },
     pitfall: '内角の和を辺の数で割れるのは、各角が等しい場合です。一般の多角形で一つの角が分かるわけではありません。', related: ['triangle-angles', 'congruence'], sources: [S.polygons]
   },
@@ -423,7 +423,7 @@ export const foundationEntries = [
     summary: '円柱は、同じ大きさの円を高さの分だけ積み重ねた形です。底面の円の面積に高さを掛けると、体積を求められます。',
     definition: '底面の半径がr、高さがhの円柱の体積Vはπr²hです。高さは二つの底面を含む平行な平面の間の垂直な距離です。',
     explanation: ['まず底面の面積πr²を求め、その面積が高さ方向にどれだけ続くかを掛け合わせます。', '体積の単位は立方センチメートルなどです。底面の半径と高さは、同じ長さの単位にそろえてから計算します。'],
-    formula: 'V=\\pi r^2h', formulaSpeech: '円柱の体積ブイは、パイ掛ける半径アールの二乗掛ける高さエイチです。',
+    formula: 'V=\\pi r^2h', formulaSpeech: '円柱の体積は、半径アールを二乗し、パイと高さエイチを掛けた値です。',
     example: { question: '底面の半径が3センチメートル、高さが8センチメートルの円柱の体積は。', steps: ['底面積はπ×3²で9π平方センチメートルです。', '高さ8センチメートルを掛けます。'], answer: '72π立方センチメートルです。' },
     pitfall: '表面積と体積を混同しないようにしましょう。底面積と側面積を足すのは、表面の広さを求める計算です。', related: ['area-circle', 'sphere', 'similarity'], sources: [S.solids]
   },

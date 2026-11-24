@@ -305,7 +305,7 @@ export function mountFormulaLab(container, { onSpeak = () => {}, onToast = () =>
   function speakExplanation() {
     if (!runAnalysis({ silent: true })) return;
     const explanation = analysis.explanation || {};
-    const segments = [analyzedWork.name, 'この式の解説です。', explanation.meaning, ...list(explanation.steps), ...list(explanation.parameters), ...(explanation.sample ? ['実際に代入してみます。', ...list(explanation.sample.steps)] : []), ...list(explanation.conditions), '計算してわかったこと。', ...list(analysis.summary)].filter(Boolean);
+    const segments = [analyzedWork.name, '入力した式です。', { math: analyzedWork.expression }, 'この式の解説です。', explanation.meaning, ...list(explanation.steps), ...list(explanation.parameters), ...(explanation.sample ? ['実際に代入してみます。', ...list(explanation.sample.steps)] : []), ...list(explanation.conditions), '計算してわかったこと。', ...list(analysis.summary)].filter(Boolean);
     onSpeak(`${analyzedWork.name}の解説`, segments);
   }
 

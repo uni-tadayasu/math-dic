@@ -8,77 +8,66 @@
  * https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisErrorEvent/error
  */
 
-const LETTERS = {
-  a: 'エー', b: 'ビー', c: 'シー', d: 'ディー', e: 'イー', f: 'エフ',
-  g: 'ジー', h: 'エイチ', i: 'アイ', j: 'ジェー', k: 'ケー', l: 'エル',
-  m: 'エム', n: 'エヌ', o: 'オー', p: 'ピー', q: 'キュー', r: 'アール',
-  s: 'エス', t: 'ティー', u: 'ユー', v: 'ブイ', w: 'ダブリュー',
-  x: 'エックス', y: 'ワイ', z: 'ゼット'
-};
+import { spokenText, spokenFormula } from './math-speech.js';
 
-function spokenText(value) {
-  return String(value ?? '')
-    .normalize('NFC')
-    .replace(/\\frac\{([^{}]+)\}\{([^{}]+)\}/g, '$2 分の $1')
-    .replace(/\\sqrt\{([^{}]+)\}/g, 'ルート $1')
-    .replace(/\b(sin|cos|tan|log|sqrt|ln)\b/gi, word => ({
-      sin: 'サイン', cos: 'コサイン', tan: 'タンジェント', log: 'ログ',
-      sqrt: 'ルート', ln: '自然対数'
-    })[word.toLowerCase()])
-    .replace(/(\d+)\s*\/\s*(\d+)/g, '$2 分の $1')
-    .replace(/\^\s*2(?![0-9])|²/g, 'の二乗')
-    .replace(/\^\s*3(?![0-9])|³/g, 'の三乗')
-    .replace(/\^\s*([0-9]+|[a-z])/gi, 'の $1 乗')
-    .replace(/\b[a-z]\b/gi, letter => LETTERS[letter.toLowerCase()])
-    .replace(/≠/g, ' ノットイコール ')
-    .replace(/≤|≦/g, ' 小なりイコール ')
-    .replace(/≥|≧/g, ' 大なりイコール ')
-    .replace(/≈|≒/g, ' ほぼイコール ')
-    .replace(/=/g, ' イコール ')
-    .replace(/[×·*]/g, ' かける ')
-    .replace(/[÷/]/g, ' わる ')
-    .replace(/±/g, ' プラスマイナス ')
-    .replace(/\+/g, ' たす ')
-    .replace(/[−–-]/g, ' マイナス ')
-    .replace(/</g, ' 小なり ')
-    .replace(/>/g, ' 大なり ')
-    .replace(/π/g, ' パイ ')
-    .replace(/θ/g, ' シータ ')
-    .replace(/∞/g, ' 無限大 ')
-    .replace(/√/g, ' ルート ')
-    .replace(/%|％/g, ' パーセント ')
-    .replace(/°/g, ' 度 ')
-    .replace(/[\r\n]+/g, '。')
-    .replace(/\s+/g, ' ')
-    .replace(/。+/g, '。')
-    .trim();
+const isJapanese = voice => /^ja(?:[-_]|$)/i.test(voice.lang || '');
+let wordSegmenter = null;
+try { wordSegmenter = new Intl.Segmenter('ja', { granularity: 'word' }); } catch (_) { /* Older engines use phrase boundaries. */ }
+
+function wordStarts(text) {
+  if (wordSegmenter) {
+    return [0, ...Array.from(wordSegmenter.segment(text))
+      .filter(part => part.isWordLike).map(part => part.index)];
+  }
+  const starts = [0];
+  for (const match of text.matchAll(/[、。！？!?；;\s]+/gu)) starts.push(match.index + match[0].length);
+  return starts;
 }
 
-function splitSpeech(segments, rate) {
-  // Keep individual utterances short, including at the slower reading speeds.
-  // Punctuation is retained, so sentence prosody is left to the device's voice.
-  const max = Math.max(40, Math.min(100, Math.round(80 * rate)));
-  const result = [];
+function resumeOffset(text, requested) {
+  // Some voices report a character inside a word. Resume at its start so a
+  // mathematical name, decimal or variable is never resumed halfway through.
+  let safe = 0;
+  for (const start of wordStarts(text)) {
+    if (start > requested) break;
+    safe = start;
+  }
+  return safe;
+}
+
+export function splitSpeech(segments, rate = 1) {
+  const max = Math.max(80, Math.min(180, Math.round(140 * rate)));
+  const chunks = [];
   for (const segment of segments) {
-    const text = spokenText(segment);
+    const text = segment && typeof segment === 'object' && typeof segment.math === 'string'
+      ? spokenFormula(segment.math)
+      : spokenText(segment);
     if (!text) continue;
     const sentences = text.match(/[^。！？!?]+[。！？!?]*/gu) || [text];
     for (const sentence of sentences) {
-      let characters = Array.from(sentence.trim());
-      while (characters.length > max) {
-        const window = characters.slice(0, max).join('');
-        let cut = Math.max(window.lastIndexOf('、'), window.lastIndexOf('，'), window.lastIndexOf(','), window.lastIndexOf('；'), window.lastIndexOf(' '));
-        // String indexes are UTF-16; convert the candidate back to code points.
-        cut = cut > 0 ? Array.from(window.slice(0, cut + 1)).length : 0;
-        if (cut < Math.floor(max / 3)) cut = max;
-        const part = characters.splice(0, cut).join('').trim();
-        if (part) result.push(part);
+      let remaining = sentence.trim();
+      while (remaining.length > max) {
+        // Prefer a spoken pause. A comma inside 1,000 is not a pause.
+        const pauses = Array.from(remaining.slice(0, max + 1).matchAll(/[、；;\s]+|(?<![0-9]),(?![0-9])/gu));
+        let cut = pauses.length ? pauses[pauses.length - 1].index + pauses[pauses.length - 1][0].length : 0;
+        if (cut < max / 3) {
+          const starts = wordStarts(remaining).filter(start => start > 0 && start <= max);
+          cut = starts[starts.length - 1] || 0;
+        }
+        // Do not sever an indivisible word just to meet a character budget.
+        if (!cut) {
+          const next = wordStarts(remaining).find(start => start >= max);
+          if (!next) break;
+          cut = next;
+        }
+        const part = remaining.slice(0, cut).trim();
+        if (part) chunks.push(part);
+        remaining = remaining.slice(cut).trimStart();
       }
-      const tail = characters.join('').trim();
-      if (tail) result.push(tail);
+      if (remaining) chunks.push(remaining);
     }
   }
-  return result;
+  return chunks;
 }
 
 const ERROR_MESSAGES = {
@@ -133,14 +122,18 @@ export class SpeechReader extends EventTarget {
     if (globalThis.addEventListener) globalThis.addEventListener('pagehide', this._onPageHide);
   }
 
-  getVoices() {
+  _availableVoices() {
     if (!this.supported || this._destroyed) return [];
     try {
-      return Array.from(this._synth.getVoices()).sort((a, b) => {
-        const weight = voice => (/^ja(?:[-_]|$)/i.test(voice.lang) ? 100 : 0) + (voice.localService ? 10 : 0) + (voice.default ? 1 : 0);
-        return weight(b) - weight(a) || a.name.localeCompare(b.name, 'ja');
-      });
+      return Array.from(this._synth.getVoices());
     } catch (_) { return []; }
+  }
+
+  getVoices() {
+    return this._availableVoices().filter(isJapanese).sort((a, b) => {
+      const weight = voice => (/^ja[-_]JP$/i.test(voice.lang) ? 20 : 0) + (voice.default ? 4 : 0) + (voice.localService ? 2 : 0);
+      return weight(b) - weight(a) || a.name.localeCompare(b.name, 'ja');
+    });
   }
 
   configure({ rate, voiceURI } = {}) {
@@ -274,8 +267,14 @@ export class SpeechReader extends EventTarget {
       utterance.pitch = 1;
       utterance.volume = 1;
       const voices = this.getVoices();
-      const selected = voices.find(voice => voice.voiceURI === this.voiceURI)
-        || voices.find(voice => /^ja(?:[-_]|$)/i.test(voice.lang));
+      const selected = voices.find(voice => voice.voiceURI === this.voiceURI) || voices[0];
+      // Never send Japanese mathematics to a known foreign-language voice.
+      // An empty list may mean voices are still loading; keep lang=ja-JP in
+      // that case so the engine can resolve its Japanese default on the tap.
+      if (!selected && this._availableVoices().length) {
+        this._fail('language-unavailable');
+        return;
+      }
       if (selected) {
         utterance.voice = selected;
         utterance.lang = selected.lang || 'ja-JP';
@@ -293,8 +292,9 @@ export class SpeechReader extends EventTarget {
       };
       utterance.onboundary = event => {
         if (!current() || this.state !== 'playing') return;
-        if (Number.isFinite(event.charIndex)) {
-          this._offset = Math.max(this._offset, Math.min(original.length - 1, offset + event.charIndex));
+        if (Number.isFinite(event.charIndex) && event.charIndex >= 0) {
+          const requested = Math.min(original.length - 1, offset + Math.floor(event.charIndex));
+          this._offset = Math.max(this._offset, resumeOffset(original, requested));
           this._emit();
         }
       };

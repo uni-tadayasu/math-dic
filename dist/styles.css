@@ -16,3 +16,19 @@
 @media(max-width:1020px){.hero{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){.hero h1{font-size:clamp(26px,7.8vw,34px)}.hero h1 em{white-space:normal}.hero-visual{min-width:0;max-width:100%}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Writing space keeps the blackboard's 3:2 coordinates, even on a small screen. */
+.board-expand-button{display:flex;align-items:center;justify-content:center;width:auto;min-width:44px;padding:0 10px;gap:7px;font-size:14px;white-space:nowrap}
+.board-status{min-height:24px}
+.board-status .save-status{min-width:155px;justify-content:flex-end;white-space:nowrap}
+.board-expanded{display:flex;flex-direction:column;gap:0;height:100dvh;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));overflow:auto}
+.board-expanded .board-tools{flex:0 0 auto}
+.board-expanded .canvas-frame{background:#0b2c25;display:flex;align-items:center;justify-content:center;flex:1 1 0%;min-height:120px;max-width:none;width:100%;margin:0;overflow:hidden}
+.board-expanded .canvas-frame canvas{box-shadow:0 0 0 1px #dce9d52b;flex:0 0 auto;max-width:100%;max-height:100%}
+.board-expanded .board-status{flex:0 0 auto;margin:7px 0;font-size:12px}
+.board-expanded .board-actions{flex:0 0 auto;margin:0;gap:7px}
+.board-expanded .board-actions .btn{padding:9px 12px;font-size:14px;min-height:42px}
+.board-expanded .board-tip{display:none}
+.board-expanded #recognition-result{flex:0 1 auto;max-height:38dvh;min-height:0;overflow:auto;overscroll-behavior:contain}
+.board-expanded .recognition-panel{margin-top:10px}
+@media(max-width:480px){.board-status{flex-wrap:wrap;gap:2px}.board-status .save-status{max-width:none;min-width:0}.board-expanded .board-tools{gap:5px;padding:7px}.board-expanded .board-actions .btn{padding:8px 10px;font-size:13px}}

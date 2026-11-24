@@ -5,7 +5,7 @@
   "type": "module",
   "description": "黒板とチョークの数学辞典。読み上げ、手書き黒板、自作公式の分析・解説。",
   "scripts": {
-    "check": "node scripts/check-content.mjs && node scripts/check-speech.mjs && node scripts/check-speech-lifecycle.mjs",
+    "check": "node scripts/check-content.mjs && node scripts/check-speech.mjs && node scripts/check-speech-lifecycle.mjs && node scripts/check-blackboard.mjs && node scripts/check-handwriting.mjs && node scripts/check-handwriting-client.mjs",
     "formulas": "node scripts/compile-formulas.mjs",
     "dev": ""
   },

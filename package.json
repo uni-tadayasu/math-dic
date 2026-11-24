@@ -1,0 +1,15 @@
+{
+  "name": "math-atlas-dictionary",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "黒板とチョークの数学辞典。読み上げ、手書き黒板、自作公式の分析・解説。",
+  "scripts": {
+    "check": "node scripts/check-content.mjs",
+    "formulas": "node scripts/compile-formulas.mjs",
+    "dev": ""
+  },
+  "devDependencies": {
+    "katex": "0.16.47"
+  }
+}

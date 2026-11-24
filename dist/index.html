@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#103a32">
+  <meta name="description" content="調べて、聴いて、書いてわかる数学辞典。80の数学用語・公式、やさしい要約と音声解説、手書き黒板、自分の式を分析・解説する公式ラボ。PC・スマートフォン・タブレット対応。">
+  <meta property="og:title" content="数学辞典 | MATH ATLAS">
+  <meta property="og:description" content="あなたの「わからない」を、黒板いっぱいの「わかった」に。読み上げ・手書き黒板・公式ラボのある数学辞典。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="./social.svg">
+  <title>数学辞典 | MATH ATLAS</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./formula-lab.css" data-formula-lab-style="true">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <button class="sidebar-scrim" id="sidebar-scrim" aria-label="メニューを閉じる" hidden></button>
+  <aside class="sidebar" id="sidebar" aria-label="メインメニュー"></aside>
+  <div class="site-shell">
+    <header class="topbar" id="topbar"></header>
+    <main id="main" tabindex="-1"><div class="loading-state">数学辞典を開いています…</div></main>
+    <footer class="site-footer"><span>MATH ATLAS</span><span>数学を、もっと自由に。</span><button type="button" data-action="about">この辞典について</button></footer>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="よく使う機能"></nav>
+  <section class="audio-dock" id="audio-dock" aria-label="読み上げプレイヤー" hidden></section>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="dialog" class="app-dialog"></dialog>
+  <noscript><p class="noscript">数学辞典を使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+</body>
+</html>
